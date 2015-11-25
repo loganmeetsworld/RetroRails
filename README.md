@@ -11,7 +11,7 @@ Welcome to the Rails Retro, a week long project completed by GitHub user [Logan 
 
 ## Concept 
 
-This project is based off of an agile practice that my cohort does every week: [Retrospective](http://retrospectivewiki.org/index.php?title=Agile_Retrospective_Resource_Wiki). I wanted to make a web application version of our Retro board so that people can add, edit, and delete additions from their compute anonymously rather than getting up in public and writing something on our physical board. 
+This project is based off of an agile practice that my cohort does every week: [Retrospective](http://retrospectivewiki.org/index.php?title=Agile_Retrospective_Resource_Wiki). I wanted to make a web application version of our Retro board so that people can add, edit, and delete additions from their compute anonymously rather than getting up in public and writing something on our physical board. Most important, now you can use emojis in your retros.
 
 ## Technologies
 

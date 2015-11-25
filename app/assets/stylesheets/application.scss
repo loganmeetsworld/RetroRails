@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|News+Gothic|Inconsolata|Droid+Sans|Roboto|Cabin');
+
+/*
+"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+/*
+@import "bootstrap-sprockets";
+@import "bootstrap";*/
+
+/*!
+ * Start Bootstrap - 3 Col Portfolio HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+  padding-top: 70px;
+}
+
+footer {
+  margin: 50px 0;
+}
+
+.title {
+  font-family: cabin;
+  font-size: 2.6em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  padding: 20px;
+  color: black;
+}
+
+h1 {
+  background-color: rgba(255, 255, 255, .8)
+}
+
+h3 {
+  text-align: center;
+  font-family: cabin, roboto;
+  font-size: 1.4em;
+}
+
+p {
+  color: rgba(0, 0, 0, .6);
+  font-size: .47em;
+  background-color: rgba(255, 255, 255, .8);
+  padding: 25px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.definition {
+  font-style: italic;
+}
+
+.title:hover .retro {
+  color: black;
+  transition: color .7s ease;
+}
+
+.title:hover .retro {
+  color: #009999;
+}
+
+.title:hover .definition, .title:hover .spective {
+  color: black;
+  text-shadow: none;
+  transition: color .7s ease;
+
+
+}
+
+.title:hover .definition, .title:hover .spective {
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.tl { position: absolute; top: 0; left: 0; right: 50%; bottom: 50%; border: solid rgba(0, 0, 0, .3); border-width: 0 3px 3px 0; }
+.tr { position: absolute; top: 0; left: 50%; right: 0; bottom: 50%; border:solid rgba(0, 0, 0, .3); border-width: 0 0 3px 0; }
+.bl { position: absolute; top: 50%; left: 0; right: 50%; bottom: 0; border:solid rgba(0, 0, 0, .3); border-width: 0 3px 0 0; }
+.br { position: absolute; top: 50%; left: 50%; right: 0; bottom: 0; }
