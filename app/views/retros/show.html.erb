@@ -1,24 +1,36 @@
 <div class="tl">
 	<h3>Room for Improvement</h3>
 	<% @one.each do |note| %> 
-		<h5 class="note"><%= note.content %></h5>
+		<li><h5 class="note"><%= note.content %>
+		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, @note) %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, @note), method: :delete, onclick: "return confirm('Are you sure?')"  %>
+		</h5></li>
 	<% end %> 
 </div>
 <div class="tr">
 	<h3>More of ...</h3>
 	<% @two.each do |note| %> 
-		<h5 class="note"><%= note.content %></h5>
-	<% end %> 
+		<li><h5 class="note"><%= note.content %>
+		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, @note) %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, @note), method: :delete, onclick: "return confirm('Are you sure?')" %>
+		</h5></li>
+	<% end %>
 </div>
 <div class="bl">
 	<h3>Less of ... </h3>
 	<% @three.each do |note| %> 
-		<h5 class="note"><%= note.content %></h5>
-	<% end %> 
+		<li><h5 class="note"><%= note.content %>
+		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, @note) %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, @note), method: :delete, onclick: "return confirm('Are you sure?')" %>
+		</h5>	
+	<% end %>
 </div>
 <div class="br">
 	<h3>Positive Experiences</h3>
 	<% @four.each do |note| %> 
-		<h5 class="note"><%= note.content %></h5>
-	<% end %> 
+		<li><h5 class="note"><%= note.content %>
+		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, @note) %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, @note), method: :delete, onclick: "return confirm('Are you sure?')" %>
+		</h5>
+	<% end %>
 </div>

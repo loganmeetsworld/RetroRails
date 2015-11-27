@@ -6,7 +6,11 @@ class RetrosController < ApplicationController
 
 	def show 
 		@retro = Retro.find(params[:id])
-		@notes = Note.all
+		unless Note.find(params[:id]).nil?
+			@note = Note.find(params[:id])
+		end
+
+		@notes = Note.where(retro_id: @retro.id)
 		@one = @notes.where("cat_id = '1'")
 		@two = @notes.where("cat_id = '2'")
 		@three = @notes.where("cat_id = '3'")
@@ -16,6 +20,7 @@ class RetrosController < ApplicationController
 	def new
 		@note = Note.new
 		@retro = Retro.new
+		@title = "New Note"
 		@action = "create"
 	end
 
@@ -25,6 +30,25 @@ class RetrosController < ApplicationController
   	team_id = params[:team_id]
 		redirect_to team_path(team_id)
   end
+
+  def edit
+  	@action = "update"
+  	@title = "Update Note"
+  	@retro = Retro.find(params[:id])
+  end
+
+  def update
+  	@retro = Retro.find(params[:id])
+
+  	@retro.update(retro_params)
+  	redirect_to team_retro_path(current_team, @retro)
+  end
+
+  def destroy
+		@retro = Retro.destroy(params[:id])
+
+		redirect_to team_retros_path(@retro)
+	end
 
   private
 

@@ -17,12 +17,13 @@
 
     <nav>
 	    <div id="team-nav">
-    		<% if !current_team.nil? && current_team.retros.count != 0 && !@retro.nil? %> 
-	  			<%= link_to "New Note", new_team_retro_note_path(current_team, @retro.id)  %>
+    		<% if (!current_team.nil?) && (current_team.retros.count) != 0 && (!@retro.nil?) && (!@retro.name.nil?) %>
+    			<span class="update"><%= link_to "Update #{@retro.name}", edit_team_retro_path(current_team, @retro.id)  %></span>
+	  			<span class="update"><%= link_to "New Note", new_team_retro_note_path(current_team, @retro.id)  %></span>
+
 	  		<% end %>
-	    	<%= link_to "About", about_path %> 
 			  <% if current_team %>
-			    <%= link_to "My Account", team_path(current_team) %>
+			    <%= link_to "Retros", team_path(current_team) %>
 			    <%= link_to "Log Out", log_out_path %>
 			  <% else %>
 			    <%= link_to "Sign Up", sign_up_path %>
