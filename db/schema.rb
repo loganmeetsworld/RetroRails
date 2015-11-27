@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126200011) do
+ActiveRecord::Schema.define(version: 20151127073932) do
 
   create_table "notes", force: :cascade do |t|
     t.string   "content"
     t.datetime "date_complete"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "cat_id"
+    t.integer  "retro_id"
   end
 
   create_table "retros", force: :cascade do |t|

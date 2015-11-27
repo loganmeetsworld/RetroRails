@@ -6,9 +6,15 @@ class RetrosController < ApplicationController
 
 	def show 
 		@retro = Retro.find(params[:id])
+		@notes = Note.all
+		@one = @notes.where("cat_id = '1'")
+		@two = @notes.where("cat_id = '2'")
+		@three = @notes.where("cat_id = '3'")
+		@four = @notes.where("cat_id = '4'")
 	end
 
 	def new
+		@note = Note.new
 		@retro = Retro.new
 		@action = "create"
 	end

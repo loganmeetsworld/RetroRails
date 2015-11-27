@@ -17,7 +17,7 @@
 
     <nav>
 	    <div id="team-nav">
-    		<% if !@retro.nil? %> 
+    		<% if !current_team.nil? && current_team.retros.count != 0 && !@retro.nil? %> 
 	  			<%= link_to "New Note", new_team_retro_note_path(current_team, @retro.id)  %>
 	  		<% end %>
 	    	<%= link_to "About", about_path %> 
