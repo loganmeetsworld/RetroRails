@@ -1,0 +1,9 @@
+<h1> New Note </h1>
+
+<%= form_for [@retro , @note] do |f| %>
+  <%= f.label :note_name %>:
+  <%= f.text_field :content, :required => true %>
+	<br>
+
+  <%= @note.persisted? ? (f.submit value: "Update note", id: 'special-button') : (f.submit value: "Add note", id: 'special-button') %>
+<% end %>

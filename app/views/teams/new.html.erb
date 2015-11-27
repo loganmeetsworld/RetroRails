@@ -1,19 +1,13 @@
-<%= form_for @team do |f| %> 
-	<%= f.label :name %> <br>
-	<%= f.text_field :name, required: true, size: "60", placeholder: "Team Name"%> 
-
-	<br><br>
-	
-	<%= f.label :bio %> <br>
-	<%= f.text_area :bio, size: "60x5", placeholder: "Team Description"%>
-	
-	<br><br>
-
-	<%= f.label :password %> <br>
-	<%= f.password_field(:password, onchange: "if ($('#password').val().length > 30) { alert('Your password needs to be shorter!'); }", placeholder: "Secrets") %>
-	
-	<br><br>
-
-	<%= @team.persisted? ? (f.submit value: "Update Team", id: 'special-button') : (f.submit value: "Add Team", id: 'special-button') %>
-	
-<% end %>
+<div class="signup_form_div">
+<h1>Create an account!</h1>
+	<%= form_for @team, :url => {:controller => 'teams', :action => 'create'}  do |f| %>
+	  <p class="text_fields">
+	    <%= f.text_field :name, placeholder: ' Name' %>
+	    <%= f.password_field :password, placeholder: 'Password' %>
+	    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
+	  </p>
+	  <p id="signup_submit">
+	    <%= f.submit :Signup, class: 'button'%>
+	  </p>
+	<% end %>
+</div>

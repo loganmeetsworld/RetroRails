@@ -11,27 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124232537) do
+ActiveRecord::Schema.define(version: 20151126200011) do
 
   create_table "notes", force: :cascade do |t|
+    t.string   "content"
+    t.datetime "date_complete"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "retros", force: :cascade do |t|
     t.string   "name"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer  "team_id"
-    t.datetime "complete_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string   "name"
-    t.string   "bio"
-    t.string   "password"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

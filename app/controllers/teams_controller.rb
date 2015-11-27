@@ -1,34 +1,32 @@
 class TeamsController < ApplicationController
-	before_action :get_team, only: [:edit, :update]
+  before_action only: [ :show, :edit ] { @team = Team.find(params[:id]) }
 
-	def get_team
-		@team = Team.find(params[:id])
-	end
+  def index
+  end
 
-	def new
-		@team = Team.new
-	end
+  def show
+  	if params[:retro_select].present?
+      redirect_to(team_retro_path(params[:id], params[:retro_select]))
+    end
+  	@team = Team.find(params[:id])
+  end
 
-	def delete
-		@team = Team.destroy(params[:id])
-	end
+  def new
+  	@team = Team.new
+  end
 
 	def create
-		Team.create(team_params[:team])
-		redirect_to "/users"
-	end
-
-	def edit
-	end
-
-	def update
-		@team.update(team_params[:team])
-		redirect_to "/users"
+	  @team = Team.new(team_params)
+	  if @team.save
+	    redirect_to new_session_path, :notice => "Signed up!"
+	  else
+	    render "new"
+	  end
 	end
 
 	private
 
 	def team_params
-		params.permit(team:[:name, :bio, :password])
+	params.require(:team).permit(:name, :password, :salt, :encrypted_password)
 	end
 end

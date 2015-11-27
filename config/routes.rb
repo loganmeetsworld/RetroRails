@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  root 'users#welcome'
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get "/signout" => "sessions#destroy", :as => :signout
+  root :to => 'welcome#index'
+  get "about" => 'welcome#about'
 
-  get 'users/select' => 'users#index', as: :team_select
-
-  resources :users
-  resources :teams
-  resources :notes
-  	resources :votes do 
-  		patch "upvote", on: :collection 
-  	end
-  	resources :comments
-  end
+	get "log_out" => "sessions#destroy", :as => "log_out"
+	get "log_in" => "sessions#new", :as => "log_in"
+	get "sign_up" => "teams#new", :as => "sign_up"
+	
+	resources :teams do
+		resources :retros do 
+			resources :notes
+		end
+	end
+	
+	resources :sessions
 end

@@ -8,7 +8,31 @@
 </head>
 <body>
 
-<%= yield %>
+ <header>
+    <%= link_to root_url do %>
+    <div class="logo">
+      <h6>R</h6>
+    </div>
+    <% end %> 
+
+    <nav>
+	    <div id="team-nav">
+    		<% if !@retro.nil? %> 
+	  			<%= link_to "New Note", new_team_retro_note_path(current_team, @retro.id)  %>
+	  		<% end %>
+	    	<%= link_to "About", about_path %> 
+			  <% if current_team %>
+			    <%= link_to "My Account", team_path(current_team) %>
+			    <%= link_to "Log Out", log_out_path %>
+			  <% else %>
+			    <%= link_to "Sign Up", sign_up_path %>
+			    <%= link_to "Log In", log_in_path %>
+			  <% end %>
+			</div>
+    </nav>
+  </header>
+
+	<%= yield %>
 
 </body>
 </html>

@@ -1,13 +1,24 @@
 class SessionsController < ApplicationController
-	def create
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
-    redirect_to '/'
+  def new
   end
 
-  protected
-
-  def auth_hash
-    request.env['omniauth.auth']
+  def show
+  	@team = Team.find(params[:id])
   end
+
+  def create
+	  team = Team.authenticate(params[:name], params[:password])
+	  if team
+	    session[:team_id] = team.id
+	    redirect_to team_path(team), :notice => "Logged in!"
+	  else
+	    flash.now.alert = "Invalid name or password"
+	    render "new"
+	  end
+	end
+
+	def destroy
+	  session[:team_id] = nil
+	  redirect_to root_url, :notice => "Logged out!"
+	end
 end
