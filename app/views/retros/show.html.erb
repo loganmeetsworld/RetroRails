@@ -2,26 +2,27 @@
 	<h3>Room for Improvement</h3>
 	<% @one.each do |note| %> 
 		<li><h5 class="note"><%= note.content %>
-		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, @note) %>
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, @note), method: :delete, onclick: "return confirm('Are you sure?')"  %>
+		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, Note.find(params[:id])) %>
+	<% end %> 
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')", class="btn btn-default"  %>
 		</h5></li>
 	<% end %> 
 </div>
 <div class="tr">
 	<h3>More of ...</h3>
-	<% @two.each do |note| %> 
+	<% @three.each do |note| %> 
 		<li><h5 class="note"><%= note.content %>
-		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, @note) %>
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, @note), method: :delete, onclick: "return confirm('Are you sure?')" %>
+		<%= link_to "Edit", edit_team_retro_note_path(Note.find(params[:id]), @retro, current_team) %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
 		</h5></li>
 	<% end %>
 </div>
 <div class="bl">
 	<h3>Less of ... </h3>
-	<% @three.each do |note| %> 
+	<% @two.each do |note| %> 
 		<li><h5 class="note"><%= note.content %>
-		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, @note) %>
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, @note), method: :delete, onclick: "return confirm('Are you sure?')" %>
+		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, Note.find(params[:id])) %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
 		</h5>	
 	<% end %>
 </div>
@@ -29,8 +30,8 @@
 	<h3>Positive Experiences</h3>
 	<% @four.each do |note| %> 
 		<li><h5 class="note"><%= note.content %>
-		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, @note) %>
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, @note), method: :delete, onclick: "return confirm('Are you sure?')" %>
+		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, Note.find(params[:id])) %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
 		</h5>
 	<% end %>
 </div>

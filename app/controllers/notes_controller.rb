@@ -6,6 +6,7 @@ class NotesController < ApplicationController
 	end
 
 	def create
+  	@action = "create"
   	Note.create(note_params)
   	retro_id = params[:retro_id]
   	@retro = Retro.find(retro_id)

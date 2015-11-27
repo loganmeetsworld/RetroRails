@@ -6,9 +6,6 @@ class RetrosController < ApplicationController
 
 	def show 
 		@retro = Retro.find(params[:id])
-		unless Note.find(params[:id]).nil?
-			@note = Note.find(params[:id])
-		end
 
 		@notes = Note.where(retro_id: @retro.id)
 		@one = @notes.where("cat_id = '1'")

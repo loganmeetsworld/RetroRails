@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 	    redirect_to team_path(team), :notice => "Logged in!"
 	  else
 	    flash.now.alert = "Invalid name or password"
-	    render "new"
+	    redirect_to log_in_path
 	  end
 	end
 

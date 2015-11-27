@@ -1,7 +1,7 @@
 <% if @team.nil? %> 
-	<h3><%= link_to "Log in to Your Team.", log_in_path %></h3>
+	<h3><%= link_to "Log in to Your Team.", log_in_path, class: 'btn btn-success' %></h3>
 	<h3>OR</h3>
-	<h3><%= link_to "Create a New Team.", new_team_path %></h3>
+	<h3><%= link_to "Create a New Team.", new_team_path, class: 'btn btn-success' %></h3>
 <% else %> 
 	<%= @team.name %>
 <% end %> 
