@@ -1,9 +1,9 @@
 <% @quad.each do |n| %> 
 	<% if n.date_complete.nil? %>
-  	<div id="checkbox"><%= link_to "&#9744;".html_safe, "/teams/#{@team.id}/retros/#{@retro.id}/notes/complete/#{@note.id}", method: :patch %></div>
+  	<div id="checkbox"><%= link_to "&#9744;".html_safe, complete_path(current_team, @retro, @note), method: :patch %></div>
   		<div class="incomplete"><%= n.content %></div>
   <% else %> 
-  	<div id="checkbox"><%= link_to "&#9745;".html_safe, "/teams/#{@team.id}/retros/#{@retro.id}/notes/incomplete/#{@note.id}", method: :patch %></div>
+  	<div id="checkbox"><%= link_to "&#9745;".html_safe, incomplete_path(current_team, @retro, @note), method: :patch %></div>
   	<div class="complete"><%= n.content %></div>
   <% end %>
 
