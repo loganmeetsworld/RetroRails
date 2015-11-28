@@ -1,7 +1,7 @@
 class RetrosController < ApplicationController
-	before_action only: [:show, :index, :create] { @team = current_team }
-	before_action only: [:show, :edit, :update, :destroy] { @retro = Retro.find(params[:id]) }
-	before_action only: [:show] { if @retro.notes.size != 0 then @note = Note.find(params[:id]) end }
+	before_action only: [:show, :index, :create, :update] { @team = current_team }
+	before_action only: [:show, :edit, :update, :destroy, :serve] { @retro = Retro.find(params[:id]) }
+	before_action only: [:show] { if @retro.notes.size != 0 then @notes = Note.all end }
 
 	def index
 		@retros = Retro.where(team_id: @team.id)
@@ -24,7 +24,8 @@ class RetrosController < ApplicationController
 	end
 
 	def create
-  	Retro.create(retro_params[:retro])
+  	Retro.create(retro_params[:retro]) 
+
 		redirect_to team_path(@team)
   end
 
@@ -34,7 +35,7 @@ class RetrosController < ApplicationController
   end
 
   def update
-  	@retro.update(retro_params)
+  	@retro.update(retro_params[:retro])
   	redirect_to team_retro_path(@team, @retro)
   end
 

@@ -1,7 +1,10 @@
 class NotesController < ApplicationController
-	before_action only: [:edit, :update, :complete, :incomplete] { @note = Note.find(params[:id]) }
-	before_action only: [:new, :create, :edit, :update, :destroy, :complete, :incomplete] { @retro = Retro.find(params[:retro_id]) }
-	before_action only: [:new, :create, :edit, :update, :destroy, :complete, :incomplete] { @team = Team.find(params[:team_id]) }
+	before_action only: [:show, :edit, :update, :complete, :incomplete] { @note = Note.find(params[:id]) }
+	before_action only: [:show, :new, :create, :edit, :update, :destroy, :complete, :incomplete] { @retro = Retro.find(params[:retro_id]) }
+	before_action only: [:show, :new, :create, :edit, :update, :destroy, :complete, :incomplete] { @team = Team.find(params[:team_id]) }
+
+	def show
+	end
 
 	def new
 		@note = Note.new
@@ -45,6 +48,6 @@ class NotesController < ApplicationController
   private
 
   def note_params
-  	params.permit(note:[:content, :cat_id, :team_id, :retro_id])
+  	params.permit(note:[:content, :cat_id, :team_id, :retro_id, :conclussion, :upvote, :complete_status])
 	end
 end

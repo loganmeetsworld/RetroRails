@@ -2,10 +2,10 @@
 
 <%= form_for @note, action: @action, url: @url do |f| %>
 	<fieldset>
-  <%= f.label :content %> <br>
-	<%= f.text_area :content, size: "60x5", placeholder: "Note content." %>
-	<br>
-	<%= f.label :category %> 
+  <%= f.label :note %> <br>
+	<%= f.text_area :content, size: "60x5", placeholder: "Note content.", required: 'required' %>
+	<br><br>
+	<%= f.label :category, "Category (Required): "%> 
 	<%= f.radio_button "cat_id", "1", required: 'required' %>
 	<%= f.label :cateogory_1, "Room for Improvement" %>
 	<%= f.radio_button "cat_id", "2", required: 'required' %>
@@ -14,8 +14,20 @@
 	<%= f.label :cateogory_3, "More of" %>
 	<%= f.radio_button "cat_id", "4", required: 'required' %>
 	<%= f.label :cateogory_4, "Positive Experiences" %>
+	<br><br>
+	<%= f.label :upvote, "Upvote this Note" %> 
+	<br>
+	+<%= f.number_field :upvote, in: 1..23, step: 1, placeholder: 0 %>
+	<br><br>
+	<%= f.label :conclussion, "Action Items for the Future (Optional)" %>
+	<br> 
+	<%= f.text_area :conclussion, size: "60x3", placeholder: "Note conclussions." %> 
+	<br><br>
+	<%= f.check_box :complete_status %>
+	<%= f.label :complete_status, "We Completed this Note!"  %> 
+	
 	<%= f.hidden_field :retro_id, value: @retro.id %>
-
+	<br><br>
   <%= @note.persisted? ?  (f.submit value: "Update note", id: 'special-button') : (f.submit value: "Add note", id: 'special-button') %>
   </fieldset>
 <% end %>

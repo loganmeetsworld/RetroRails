@@ -18,9 +18,11 @@
     <nav>
 	    <div id="team-nav">
     		<% if (!current_team.nil?) && (current_team.retros.count) != 0 && (!@retro.nil?) && (!@retro.name.nil?) %>
-    			<span class="update"><%= link_to "Update #{@retro.name}", edit_team_retro_path(current_team, @retro.id)  %></span>
+    			<span class="update"><%= link_to "Update Retro: #{@retro.name}", edit_team_retro_path(current_team, @retro.id)  %></span>
 	  			<span class="update"><%= link_to "New Note", new_team_retro_note_path(current_team, @retro.id)  %></span>
-
+	  			<% if !@retro.attachment.nil? %> 
+	  				<span class="update"><%= link_to "Download Notes", @retro.attachment_url %></span> 
+	  			<% end %> 
 	  		<% end %>
 			  <% if current_team %>
 			    <%= link_to "Retros", team_path(current_team) %>

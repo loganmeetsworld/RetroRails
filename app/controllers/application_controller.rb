@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
 	def current_team
 	  @current_team ||= Team.find(session[:team_id]) if session[:team_id]
 	end
+
+	def note_params
+  	params.permit(note:[:content, :cat_id, :team_id, :retro_id, :conclussion, :upvote, :complete_status])
+	end
 end

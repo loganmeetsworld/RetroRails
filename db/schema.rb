@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128191823) do
+ActiveRecord::Schema.define(version: 20151128223000) do
 
   create_table "notes", force: :cascade do |t|
     t.string   "content"
     t.datetime "date_complete"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "cat_id"
     t.integer  "retro_id"
     t.integer  "team_id"
+    t.integer  "complete_status"
+    t.integer  "upvote"
+    t.string   "conclussion"
   end
 
   create_table "retros", force: :cascade do |t|
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 20151128191823) do
     t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "summary"
+    t.string   "attachment"
   end
 
   create_table "teams", force: :cascade do |t|

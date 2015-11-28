@@ -1,0 +1,10 @@
+<h3>Note #<%= @note.id %> Page</h3>
+
+<h4>Content: <%= @note.content %></h4>
+<h4>Category: <%= Note.category(@note.cat_id) %> </h4>
+<h4><%= if !@note.upvote.nil? then "Upvotes: #{@note.upvote}" end %></h4>
+<h4><%= if !@note.conclussion.nil? then "Conclussions: #{@note.conclussion}" end %></h4>
+<h4><%= if !@note.complete_status.nil? then "Completed #{distance_of_time_in_words(@note.date_complete, Time.now)} ago" end %></h4>
+
+<%= button_to "Back to Retro", team_retro_path(@team, @retro), method: :get %> 
+<%= button_to "Edit Note", edit_team_retro_note_path(@team, @retro, @note), method: :get %> 
