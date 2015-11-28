@@ -1,0 +1,11 @@
+<% @quad.each do |n| %> 
+	<li><%= if !n.conclussion.nil? && !n.conclussion.empty? then "🔔" end %> 
+	<% if n.complete_status == "1" %>
+		<div class="complete"><%= n.content %></div>
+	<% else %> 
+		<div class="incomplete"><%= n.content %></div>
+	<% end %> 
+	<% if !n.upvote.nil? %> 
+		+<div class="upvote"><%= n.upvote %></div>
+	<% end %></li>
+<% end %> 

@@ -10,3 +10,5 @@
   <br>
   <%= @retro.persisted? ?  (f.submit value: "Update Retro", id: 'special-button') : (f.submit value: "Add Retro", id: 'special-button') %>
 <% end %>
+<br><br>
+<%= link_to "Delete this Retro", team_retro_path(current_team, @retro), method: :delete, onclick: "return confirm('Are you sure?')" %>
