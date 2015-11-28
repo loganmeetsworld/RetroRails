@@ -1,13 +1,14 @@
 class NotesController < ApplicationController
 	before_action only: [:edit, :update] { @note = Note.find(params[:id]) }
-	before_action only: [:new, :create, :edit, :update] { @retro = Retro.find(params[:retro_id]) }
-	before_action only: [:new, :create, :edit, :update] { @team = current_team }
+	before_action only: [:new, :create, :edit, :update, :destroy] { @retro = Retro.find(params[:retro_id]) }
+	before_action only: [:new, :create, :edit, :update, :destroy] { @team = current_team }
 
 	def new
 		@note = Note.new
 
 		@title = "New Note"
 		@action = "create"
+		@url = "/teams/#{@team.id}/retros/#{@retro.id}/notes"
 	end
 
 	def create
@@ -18,6 +19,7 @@ class NotesController < ApplicationController
   def edit
   	@title = "Update Note"
   	@action = "update"
+  	@url = "/teams/#{@team.id}/retros/#{@retro.id}/notes/#{@note.id}"
   end
 
   def update

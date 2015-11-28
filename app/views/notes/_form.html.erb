@@ -1,6 +1,6 @@
 <h1><%= @title %></h1>
 
-<%= form_for @note, action: @action, url: "/teams/#{@team.id}/retros/#{@retro.id}/notes" do |f| %>
+<%= form_for @note, action: @action, url: @url do |f| %>
 	<fieldset>
   <%= f.label :content %> <br>
 	<%= f.text_area :content, size: "60x5", placeholder: "Note content." %>
