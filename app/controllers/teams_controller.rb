@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action only: [ :show ] { @team = Team.find(params[:id]) }
+  before_action only: [ :show, :edit ] { @team = Team.find(params[:id]) }
 
   def show
   	if params[:retro_select].present?

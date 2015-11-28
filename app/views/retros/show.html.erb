@@ -1,36 +1,20 @@
 <div class="tl">
 	<h3>Room for Improvement</h3>
-	<% @one.each do |note| %> 
-		<li><h5 class="note"><%= note.content %>
-		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, Note.find(params[:id])) %>
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
-		</h5></li>
-	<% end %> 
+	<% @quad = @one %> 
+		<%= render "display" %> 
 </div>
 <div class="tr">
 	<h3>More of ...</h3>
-	<% @three.each do |note| %> 
-		<li><h5 class="note"><%= note.content %>
-		<%= link_to "Edit", edit_team_retro_note_path(Note.find(params[:id]), @retro, current_team) %>
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
-		</h5></li>
-	<% end %>
+	<% @quad = @two %> 
+		<%= render "display" %> 
 </div>
 <div class="bl">
 	<h3>Less of ... </h3>
-	<% @two.each do |note| %> 
-		<li><h5 class="note"><%= note.content %>
-		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, Note.find(params[:id])) %>
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
-		</h5>	
-	<% end %>
+	<% @quad = @three %> 
+		<%= render "display" %> 
 </div>
 <div class="br">
 	<h3>Positive Experiences</h3>
-	<% @four.each do |note| %> 
-		<li><h5 class="note"><%= note.content %>
-		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, Note.find(params[:id])) %>
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
-		</h5>
-	<% end %>
+	<% @quad = @four %> 
+		<%= render "display" %> 
 </div>

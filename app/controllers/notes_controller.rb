@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
-	before_action only: [:edit, :update] { @note = Note.find(params[:id]) }
-	before_action only: [:new, :create, :edit, :update, :destroy] { @retro = Retro.find(params[:retro_id]) }
-	before_action only: [:new, :create, :edit, :update, :destroy] { @team = current_team }
+	before_action only: [:edit, :update, :complete, :incomplete] { @note = Note.find(params[:id]) }
+	before_action only: [:new, :create, :edit, :update, :destroy, :complete, :incomplete] { @retro = Retro.find(params[:retro_id]) }
+	before_action only: [:new, :create, :edit, :update, :destroy, :complete, :incomplete] { @team = current_team }
 
 	def new
 		@note = Note.new
@@ -29,7 +29,16 @@ class NotesController < ApplicationController
 
   def destroy
 		Note.destroy(params[:id])
+		redirect_to team_retro_path(@team, @retro)
+	end
 
+	def complete
+		@note.date_complete = Time.now
+		redirect_to team_retro_path(@team, @retro)
+	end
+
+	def incomplete
+		@note.date_complete = nil
 		redirect_to team_retro_path(@team, @retro)
 	end
 

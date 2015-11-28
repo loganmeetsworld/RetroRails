@@ -1,0 +1,13 @@
+<% @quad.each do |n| %> 
+	<% if n.date_complete.nil? %>
+  	<div id="checkbox"><%= link_to "&#9744;".html_safe, "/teams/#{@team.id}/retros/#{@retro.id}/notes/complete/#{@note.id}", method: :patch %></div>
+  		<div class="incomplete"><%= n.content %></div>
+  <% else %> 
+  	<div id="checkbox"><%= link_to "&#9745;".html_safe, "/teams/#{@team.id}/retros/#{@retro.id}/notes/incomplete/#{@note.id}", method: :patch %></div>
+  	<div class="complete"><%= n.content %></div>
+  <% end %>
+
+	<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, Note.find(params[:id])) %>
+	<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
+	</h5>
+<% end %> 

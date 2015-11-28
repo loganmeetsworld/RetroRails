@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 	resources :teams do
 		resources :retros do 
 			resources :notes
+			patch 'notes/complete/:id' => 'notes#complete'
+			patch 'notes/incomplete/:id' => 'notes#incomplete'
 		end
 	end
 	
