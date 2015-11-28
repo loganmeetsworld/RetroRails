@@ -1,56 +1,51 @@
 class RetrosController < ApplicationController
+	before_action only: [:index, :create] { @team = current_team }
+	before_action only: [:show, :edit, :update] { @retro = Retro.find(params[:id]) }
+
 	def index
-		@team = Retro.find(params[:team_id])
 		@retros = Retro.where(team_id: @team.id)
 	end
 
 	def show 
-		@retro = Retro.find(params[:id])
+		notes = Note.where(retro_id: @retro.id)
 
-		@notes = Note.where(retro_id: @retro.id)
-		@one = @notes.where("cat_id = '1'")
-		@two = @notes.where("cat_id = '2'")
-		@three = @notes.where("cat_id = '3'")
-		@four = @notes.where("cat_id = '4'")
+		@one = notes.where("cat_id = '1'")
+		@two = notes.where("cat_id = '2'")
+		@three = notes.where("cat_id = '3'")
+		@four = notes.where("cat_id = '4'")
 	end
 
 	def new
-		@note = Note.new
 		@retro = Retro.new
-		@title = "New Note"
+
+		@title = "New Retro"
 		@action = "create"
 	end
 
 	def create
-  	Retro.create(retro_params)
-
-  	team_id = params[:team_id]
-		redirect_to team_path(team_id)
+  	Retro.create(retro_params[:retro])
+		redirect_to team_path(@team)
   end
 
   def edit
+  	@title = "Update Retro"
   	@action = "update"
-  	@title = "Update Note"
-  	@retro = Retro.find(params[:id])
   end
 
   def update
-  	@retro = Retro.find(params[:id])
-
   	@retro.update(retro_params)
-  	redirect_to team_retro_path(current_team, @retro)
+  	redirect_to team_retro_path(@team, @retro)
   end
 
   def destroy
-		@retro = Retro.destroy(params[:id])
+		Retro.destroy(params[:id])
 
-		redirect_to team_retros_path(@retro)
+		redirect_to team_retros_path(@team)
 	end
 
   private
 
   def retro_params
-		retro = params.require(:retro).permit(:name)
-		retro.merge(params.permit(:team_id))
+  	params.permit(retro:[:name, :team_id])
 	end
 end

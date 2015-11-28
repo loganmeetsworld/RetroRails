@@ -1,14 +1,10 @@
 class TeamsController < ApplicationController
-  before_action only: [ :show, :edit ] { @team = Team.find(params[:id]) }
-
-  def index
-  end
+  before_action only: [ :show ] { @team = Team.find(params[:id]) }
 
   def show
   	if params[:retro_select].present?
       redirect_to(team_retro_path(params[:id], params[:retro_select]))
     end
-  	@team = Team.find(params[:id])
   end
 
   def new

@@ -13,11 +13,13 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
- body {
+body {
+  font-family: lato, roboto, san-serif;
   word-wrap: break-word;
   max-width: 1280px;
   margin: 0 auto;
   padding-top: 70px;
+  text-align: center;
 }
 
 nav #team-nav #update a {
@@ -110,7 +112,10 @@ a {
 
 .title:hover .retro {
   color: black;
-  transition: color .7s ease;
+  -webkit-transition: color .7s ease-in-out;
+  -moz-transition: color .7s ease-in-out;
+  -ms-transition: color .7s ease-in-out;
+  -o-transition: color .7s ease-in-out;
 }
 
 .title:hover .retro {
@@ -120,7 +125,10 @@ a {
 .title:hover .definition, .title:hover .spective {
   color: black;
   text-shadow: none;
-  transition: color .7s ease;
+  -webkit-transition: color .7s ease-in-out;
+  -moz-transition: color .7s ease-in-out;
+  -ms-transition: color .7s ease-in-out;
+  -o-transition: color .7s ease-in-out;
 }
 
 .title:hover .definition, .title:hover .spective {

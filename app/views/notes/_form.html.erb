@@ -1,6 +1,6 @@
 <h1><%= @title %></h1>
 
-<%= form_for @note, url: { action: @action } do |f| %>
+<%= form_for @note, action: @action, url: "/teams/#{@team.id}/retros/#{@retro.id}/notes" do |f| %>
 	<fieldset>
   <%= f.label :content %> <br>
 	<%= f.text_area :content, size: "60x5", placeholder: "Note content." %>
@@ -14,7 +14,7 @@
 	<%= f.label :cateogory_3, "More of" %>
 	<%= f.radio_button "cat_id", "4", required: 'required' %>
 	<%= f.label :cateogory_4, "Positive Experiences" %>
-	<%= f.hidden_field :retro_id, value: @note.retro_id %>
+	<%= f.hidden_field :retro_id, value: @retro.id %>
 
   <%= @note.persisted? ?  (f.submit value: "Update note", id: 'special-button') : (f.submit value: "Add note", id: 'special-button') %>
   </fieldset>

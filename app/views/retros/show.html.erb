@@ -3,8 +3,7 @@
 	<% @one.each do |note| %> 
 		<li><h5 class="note"><%= note.content %>
 		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, Note.find(params[:id])) %>
-	<% end %> 
-		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')", class="btn btn-default"  %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, Note.find(params[:id])), method: :delete, onclick: "return confirm('Are you sure?')" %>
 		</h5></li>
 	<% end %> 
 </div>
