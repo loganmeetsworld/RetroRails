@@ -5,10 +5,10 @@ class NotesController < ApplicationController
 
 	def index
 		notes = Note.where(retro_id: @retro.id)
-		@one = notes.where("cat_id = '1'")
-		@two = notes.where("cat_id = '2'")
-		@three = notes.where("cat_id = '3'")
-		@four = notes.where("cat_id = '4'")
+		@one = notes.where("cat_id = '1'").order(:upvote).reverse
+		@two = notes.where("cat_id = '2'").order(:upvote).reverse
+		@three = notes.where("cat_id = '3'").order(:upvote).reverse
+		@four = notes.where("cat_id = '4'").order(:upvote).reverse
 	end
 
 	def new
