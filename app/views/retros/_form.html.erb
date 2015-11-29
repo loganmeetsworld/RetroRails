@@ -1,14 +1,18 @@
 <h1><%= @title %></h1>
 
-<%= form_for @retro, url: { action: @action } do |f| %>
+<%= form_for @retro, url: { action: @action }, :html => { :multipart => true } do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name, :require => true %>
-  <br>
-  <%= f.label "Completed Retro Notes:" %>
-  <%= f.file_field :data %> 
+  <br><br>
+  <% if !@retro.id.nil? %> 
+  	Current Retro Notes: <%= link_to @retro.attachment_identifier, @retro.attachment.url, :target => '_blank' %> 
+  <% end %>
+  <br><br>
+  <%= f.label "Upload Notes:" %>
+  <%= f.file_field :attachment %> 
   <%= f.hidden_field :team_id, value: current_team.id %>
-  <br>
+  <br><br>
   <%= @retro.persisted? ?  (f.submit value: "Update Retro", id: 'special-button') : (f.submit value: "Add Retro", id: 'special-button') %>
 <% end %>
 <br><br>
-<%= link_to "Delete this Retro", team_retro_path(current_team, @retro), method: :delete, onclick: "return confirm('Are you sure?')" %>
+<%= if !@retro.id.nil? then link_to "Delete this Retro", team_retro_path(current_team, @retro), method: :delete, onclick: "return confirm('Are you sure?')" end %>

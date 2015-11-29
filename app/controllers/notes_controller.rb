@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
 	before_action only: [:index, :show, :new, :create, :edit, :update, :destroy, :complete, :incomplete] { @retro = Retro.find(params[:retro_id]) }
 	before_action only: [:index, :show, :new, :create, :edit, :update, :destroy, :complete, :incomplete] { @team = Team.find(params[:team_id]) }
+	before_action only: [:show, :edit, :update, :destroy] { @note = Note.find(params[:id])}
 
 	def index
 		notes = Note.where(retro_id: @retro.id)

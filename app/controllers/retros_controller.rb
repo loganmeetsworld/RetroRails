@@ -19,7 +19,7 @@ class RetrosController < ApplicationController
 	end
 
 	def create
-  	Retro.create(retro_params[:retro]) 
+  	Retro.create(retro_params[:retro])
 
 		redirect_to team_path(@team)
   end
@@ -43,6 +43,6 @@ class RetrosController < ApplicationController
   private
 
   def retro_params
-  	params.permit(retro:[:name, :team_id])
+  	params.permit(retro:[:name, :team_id, :attachment])
 	end
 end

@@ -3,5 +3,4 @@ class Retro < ActiveRecord::Base
 	has_many :notes
 
 	mount_uploader :attachment, AttachmentUploader
-  validates :name, presence: true
 end

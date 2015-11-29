@@ -1,4 +1,5 @@
 <% @quad.each do |n| %> 
+	<%= link_to team_retro_note_path(@team, @retro, n.id) do %> 
 	<li><%= if !n.conclussion.nil? && !n.conclussion.empty? then "🔔" end %> 
 	<% if n.complete_status == "1" %>
 		<div class="complete"><%= n.content %></div>
@@ -7,5 +8,11 @@
 	<% end %> 
 	<% if !n.upvote.nil? %> 
 		+<div class="upvote"><%= n.upvote %></div>
-	<% end %></li>
+	<% end %>
+	<div class="update-2">
+		<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, n.id) %>
+		<%= link_to "Delete", team_retro_note_path(current_team, @retro, n.id), method: :delete, onclick: "return confirm('Are you sure?')" %>
+	</div>
+	</li>
+	<% end %> 
 <% end %> 
