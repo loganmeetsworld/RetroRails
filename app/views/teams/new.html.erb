@@ -1,13 +1,14 @@
-<div class="signup_form_div">
-<h1>Create an account!</h1>
-	<%= form_for @team, :url => {:controller => 'teams', :action => 'create'}  do |f| %>
-	  <p class="text_fields">
-	    <%= f.text_field :name, placeholder: ' Name' %>
-	    <%= f.password_field :password, placeholder: 'Password' %>
-	    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
-	  </p>
-	  <p id="signup_submit">
-	    <%= f.submit :Signup, class: 'button'%>
-	  </p>
-	<% end %>
+<h1>Create Team</h1>
+<form class="form-group">
+  <div class="center-div">
+		<%= form_for @team, :url => {:controller => 'teams', :action => 'create'}  do |f| %>
+			<%= f.label :name %>
+			<%= f.text_field :name, placeholder: ' Name', class: "form-control" %><br>
+			<%= f.label :password %> 
+			<%= f.password_field :password, placeholder: 'Password', class: "form-control" %><br>
+			<%= f.label "Confirm Password" %> 
+			<%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: "form-control" %><br>
+			<%= f.submit "Sign Up", class: 'btn btn-default'%>
+		<% end %>
+	</div>
 </div>

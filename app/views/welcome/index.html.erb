@@ -6,7 +6,7 @@
 <div class="title">
 	<% if !current_team.nil? %> 
 		<%= link_to team_path(current_team) do %> 
-		  <h1><span class="retro">RETRO</span><span class="spective">-SPECTIVE</span></h1>
+		  <div class="main-title"><span class="retro">RETRO</span><span class="spective">-SPECTIVE</span></div>
 		<% end %> 
 	<% else %> 
 		<%= link_to teams_path do %> 
