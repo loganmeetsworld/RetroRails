@@ -154,8 +154,13 @@ h1 {
   display: inline-block;
 }
 
+.main-content {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
 /*All the styling for the quadrants*/
-.tl { position: absolute; top: 50px; left: 0; right: 50%; bottom: 45%; border: solid rgba(0, 0, 0, .3); border-width: 0 3px 3px 0; overflow: scroll; }
+.tl { position: absolute; top: 50px; left: 0; right: 50%; bottom: 45%; border: solid rgba(0, 0, 0, .3); border-width: 0 3px 3px 0; overflow: scroll;}
 
 .tr { position: absolute; top: 50px; left: 50%; right: 0; bottom: 45%; border:solid rgba(0, 0, 0, .3); border-width: 0 0 3px 0; overflow: scroll; }
 
