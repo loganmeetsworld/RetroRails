@@ -1,14 +1,20 @@
 <h1>Create Team</h1>
-<form class="form-group">
+<div class="form-group">
   <div class="center-div">
-		<%= form_for @team, :url => {:controller => 'teams', :action => 'create'}  do |f| %>
+		<%= form_for @team do |f| %>
+			<% if @team.errors.any? %>
+	      <h2>Form is invalid</h2>
+        <% for message in @team.errors.full_messages %>
+        	<%= message %>
+        <% end %> 
+      <% end %>
 			<%= f.label :name %>
-			<%= f.text_field :name, placeholder: ' Name', class: "form-control" %><br>
+			<%= f.text_field :name, placeholder: ' Name', :class => "form-control" %><br>
 			<%= f.label :password %> 
-			<%= f.password_field :password, placeholder: 'Password', class: "form-control" %><br>
+			<%= f.password_field :password, placeholder: 'Password', :class => "form-control" %><br>
 			<%= f.label "Confirm Password" %> 
-			<%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: "form-control" %><br>
-			<%= f.submit "Sign Up", class: 'btn btn-default'%>
+			<%= f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => "form-control" %><br>
+			<%= f.submit :class => 'btn btn-default'%>
 		<% end %>
 	</div>
 </div>

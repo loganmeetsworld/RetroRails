@@ -1,7 +1,6 @@
 class RetrosController < ApplicationController
 	before_action only: [:show, :index, :create, :update, :destroy] { @team = current_team }
 	before_action only: [:show, :edit, :update, :destroy] { @retro = Retro.find(params[:id]) }
-	before_action only: [:show, :edit, :update, :destroy] { if @retro.notes.size != 0 then @note = Note.find(params[:id]) end }
 
 	def index
 		@retros = Retro.where(team_id: @team.id)

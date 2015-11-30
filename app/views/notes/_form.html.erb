@@ -28,6 +28,6 @@
 	
 	<%= f.hidden_field :retro_id, value: @retro.id %>
 	<br><br>
-  <%= @note.persisted? ?  (f.submit value: "Update note", id: 'special-button') : (f.submit value: "Add note", id: 'special-button') %>
+  <%= @note.persisted? ?  (f.submit value: "Update note", :class => 'btn btn-default') : (f.submit value: "Add note", :class => 'btn btn-default') %>
   </fieldset>
 <% end %>

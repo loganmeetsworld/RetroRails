@@ -1,18 +1,15 @@
 <% @quad.each do |n| %> 
-	<div class="quad">
 		<%= if !n.conclussion.nil? && !n.conclussion.empty? then "🔔" end %> 
 		<% if n.complete_status == "1" %>
-			<div class="complete"><%= n.content %></div>
-		<% else %> 
-			<div class="incomplete"><%= n.content %></div>
+			✅
 		<% end %> 
+		<%= n.content %>
 		<% if !n.upvote.nil? %> 
-			+<div class="upvote"><%= n.upvote %></div>
+			+<%= n.upvote %>
 		<% end %>
 		<div class="update-2">
-			<%= link_to "Details", team_retro_note_path(@team, @retro, n.id) %> 
-			<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, n.id) %>
-			<%= link_to "Delete", team_retro_note_path(current_team, @retro, n.id), method: :delete, onclick: "return confirm('Are you sure?')" %>
-		</div>
+			<%= link_to "Details", team_retro_note_path(@team, @retro, n.id), :class => "btn btn-default btn-sm" %> 
+			<%= link_to "Edit", edit_team_retro_note_path(current_team, @retro, n.id), :class => "btn btn-default btn-sm" %>
+			<%= link_to "Delete", team_retro_note_path(current_team, @retro, n.id), method: :delete, onclick: "return confirm('Are you sure?')", :class => "btn btn-default btn-sm" %>
 	</div>
 <% end %> 

@@ -3,11 +3,11 @@
   <div class="center-div">
 		<%= form_for @retro, url: { action: @action }, :html => { :multipart => true } do |f| %>
 	  	<%= f.label "Name" %>:
-	  	<%= f.text_field :name, :require => true %>
+	  	<%= f.text_field :name, :require => true, :class => "form-control" %>
 	  	<br><br>
 
-	  	<% if !@retro.id.nil? %> 
-	  		Current Retro Notes: <%= link_to @retro.attachment_identifier, @retro.attachment.url, :target => '_blank' %> 
+	  	<% if !@retro.attachment.url.nil? %> 
+	  		Current Retro Notes: <%= link_to @retro.attachment_identifier, @retro.attachment.url, :target => '_blank'%> 
 	  	<% end %>
 	  	<br><br>
 
