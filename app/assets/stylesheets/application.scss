@@ -153,10 +153,10 @@ h1 {
 }
 
 /*All the styling for the quadrants*/
-.tl { position: absolute; top: 50px; left: 0; right: 50%; bottom: 45%; border: solid rgba(0, 0, 0, .3); border-width: 0 3px 3px 0; }
+.tl { position: absolute; top: 50px; left: 0; right: 50%; bottom: 45%; border: solid rgba(0, 0, 0, .3); border-width: 0 3px 3px 0; overflow: scroll; }
 
-.tr { position: absolute; top: 50px; left: 50%; right: 0; bottom: 45%; border:solid rgba(0, 0, 0, .3); border-width: 0 0 3px 0; }
+.tr { position: absolute; top: 50px; left: 50%; right: 0; bottom: 45%; border:solid rgba(0, 0, 0, .3); border-width: 0 0 3px 0; overflow: scroll; }
 
-.bl { position: absolute; top: 55%; left: 0; right: 50%; bottom: 0; border:solid rgba(0, 0, 0, .3); border-width: 0 3px 0 0; }
+.bl { position: absolute; top: 55%; left: 0; right: 50%; bottom: 0; border:solid rgba(0, 0, 0, .3); border-width: 0 3px 0 0; overflow: scroll; }
 
-.br { position: absolute; top: 55%; left: 50%; right: 0; bottom: 0; }
+.br { position: absolute; top: 55%; left: 50%; right: 0; bottom: 0; overflow: scroll; }
