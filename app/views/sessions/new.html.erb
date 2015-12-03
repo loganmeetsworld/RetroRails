@@ -1,12 +1,12 @@
 <h1>Log In</h1><br>
 <div class="form-group">
   <div class="center-div">
-		<%= form_tag sessions_path do %>
-			<%= label_tag :name %><br>
-			<%= text_field_tag :name, params[:name],:class => "form-control", placeholder: "Name" %><br><br>
-			<%= label_tag :password %><br>
-			<%= password_field_tag :password, "", :class => "form-control", placeholder: "Password" %><br><br>
-		  <%= submit_tag "Log in", :class => 'btn btn-default' %>
-		<% end %>
-	</div>
+    <%= form_tag sessions_path do %>
+      <%= label_tag :name %><br>
+      <%= text_field_tag :name, params[:name],:class => "form-control", placeholder: "Name" %><br><br>
+      <%= label_tag :password %><br>
+      <%= password_field_tag :password, "", :class => "form-control", placeholder: "Password" %><br><br>
+      <%= submit_tag "Log in", :class => 'btn btn-default' %>
+    <% end %>
+  </div>
 </form>

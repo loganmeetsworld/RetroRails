@@ -2,10 +2,10 @@
 <br><br>
 
 <% if @team.retros.count != 0 %> 
-	<h2>View Existing Retro Board</h2>
-	<%= form_tag team_path(current_team), method: :get do %>
-	  <%= select_tag "Your Retros", options_from_collection_for_select(current_team.retros, "id", "name"), name: "retro_select"  %>
-	  <%= submit_tag "Select Retro", class: 'btn btn-default' %>
+  <h2>View Existing Retro Board</h2>
+  <%= form_tag team_path(current_team), method: :get do %>
+    <%= select_tag "Your Retros", options_from_collection_for_select(current_team.retros, "id", "name"), name: "retro_select"  %>
+    <%= submit_tag "Select Retro", class: 'btn btn-default' %>
   <% end %>
 <% end %> 
 <br><br>

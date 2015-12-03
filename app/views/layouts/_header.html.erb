@@ -1,0 +1,26 @@
+<header>
+    <%= link_to root_url do %>
+    <div class="logo">
+      <h6>R</h6>
+    </div>
+    <% end %> 
+
+    <nav>
+      <div id="team-nav">
+        <% if (!current_team.nil?) && (current_team.retros.count) != 0 && (!@retro.nil?) && (!@retro.name.nil?) %>
+          <i class="fa fa-pencil-square-o" style="color:rgb(91,192,222)"></i> <span class="update"><%= link_to "Update Retro: #{@retro.name}", edit_team_retro_path(current_team, @retro.id)  %></span>
+          <% if @retro.attachment? %> 
+            <i class="fa fa-download" style="color:rgb(91,192,222)"></i> <span class="update"><%= link_to "Download Notes", @retro.attachment.url, :target => '_blank' %></span> 
+          <% end %> 
+          <span class="update"><i class="fa fa-sticky-note" style="color:rgb(91,192,222)"></i> <%= link_to "New Note", new_team_retro_note_path(current_team, @retro.id)  %></span>
+        <% end %>
+        <% if current_team %>
+          <i class="fa fa-user" style="color:white"></i> <%= link_to "Account", team_path(current_team) %>
+          <i class="fa fa-sign-out" style="color:white"></i> <%= link_to "Log Out", log_out_path %>
+        <% else %>
+          <i class="fa fa-user-plus" style="color:white"></i> <%= link_to "Sign Up", sign_up_path %>
+          <i class="fa fa-sign-in" style="color:white"></i> <%= link_to "Log In", log_in_path %>
+        <% end %>
+      </div>
+    </nav>
+  </header>

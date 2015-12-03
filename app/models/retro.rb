@@ -1,6 +1,6 @@
 class Retro < ActiveRecord::Base
-	belongs_to :team
-	has_many :notes
+  belongs_to :team
+  has_many :notes
 
-	mount_uploader :attachment, AttachmentUploader
+  mount_uploader :attachment, AttachmentUploader
 end

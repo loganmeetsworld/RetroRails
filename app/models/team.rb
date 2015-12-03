@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
-	has_many :retros
-	has_many :notes
+  has_many :retros
+  has_many :notes
 
   attr_accessor :password
   before_save :encrypt_password
