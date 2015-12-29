@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "sign_up" => "teams#new", :as => "sign_up"
 
   patch '/teams/:team_id/retros/:retro_id/notes/:id/complete' => 'notes#complete', :as => "complete_note"
+  patch '/teams/:team_id/retros/:retro_id/notes/:id/incomplete' => 'notes#incomplete', :as => "incomplete_note"
 
   resources :teams do
     resources :retros do
