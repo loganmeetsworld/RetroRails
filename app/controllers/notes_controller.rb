@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_action only: [:index, :show, :new, :create, :edit, :update, :destroy, :complete, :incomplete] { @retro = Retro.find(params[:retro_id]) }
   before_action only: [:index, :show, :new, :create, :edit, :update, :destroy, :complete, :incomplete] { @team = Team.find(params[:team_id]) }
-  before_action only: [:show, :edit, :update, :destroy] { @note = Note.find(params[:id])}
+  before_action only: [:show, :edit, :update, :destroy, :complete, :incomplete] { @note = Note.find(params[:id])}
 
   def index
     notes = Note.where(retro_id: @retro.id)
@@ -41,12 +41,12 @@ class NotesController < ApplicationController
   end
 
   def complete
-    @note.update(:date_complete => Time.now)
+    @note.update(:complete_status => 1)
     redirect_to team_retro_path(@team, @retro)
   end
 
   def incomplete
-    @note.update(:date_complete => nil)
+    @note.update(:complete_status => nil)
     redirect_to team_retro_path(@team, @retro)
   end
 

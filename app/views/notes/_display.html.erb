@@ -1,19 +1,21 @@
 <div class="main-content">
-  <% @quad.each do |n| %> 
+  <% @quad.each do |n| %>
       <% if !n.conclussion.nil? && !n.conclussion.empty? %>
         <i class="fa fa-bell-o"></i>
-      <% end %> 
-      <% if n.complete_status == 1 %>
-        <i class="fa fa-check-square-o"></i>
-      <% else %> 
-        <i class="fa fa-square-o"></i>
-      <% end %> 
+      <% end %>
+      <span class="update-2">
+        <% if n.complete_status == 1 %>
+          <%= link_to '<i class="fa fa-check-square-o"></i>'.html_safe, incomplete_note_path(@team, @retro, n.id), method: :patch %>
+        <% else %>
+          <%= link_to '<i class="fa fa-square-o"></i>'.html_safe, complete_note_path(@team, @retro, n.id), method: :patch %>
+        <% end %>
+      </span>
       <%= n.content %>
-      <% if !n.upvote.nil? %> 
+      <% if !n.upvote.nil? %>
         +<%= n.upvote %>
       <% end %>
       <span class="update-2">
-        <%= link_to team_retro_note_path(@team, @retro, n.id) do %> 
+        <%= link_to team_retro_note_path(@team, @retro, n.id) do %>
           <i class="fa fa-info"></i>
         <% end %>
         <%= link_to edit_team_retro_note_path(current_team, @retro, n.id) do %>
@@ -21,7 +23,7 @@
         <% end %>
         <%= link_to team_retro_note_path(current_team, @retro, n.id), method: :delete, onclick: "return confirm('Are you sure?')" do %>
           <i class="fa fa-trash"></i>
-        <% end %> 
+        <% end %>
     </span><br><br>
-  <% end %> 
+  <% end %>
 </div>
