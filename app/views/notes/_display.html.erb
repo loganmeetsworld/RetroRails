@@ -3,11 +3,13 @@
       <% if !n.conclussion.nil? && !n.conclussion.empty? %>
         <i class="fa fa-bell-o"></i>
       <% end %>
-      <% if n.complete_status == 1 %>
-        <%= link_to '<i class="fa fa-check-square-o"></i>'.html_safe, incomplete_note_path(@team, @retro, n.id), method: :patch %>
-      <% else %>
-        <%= link_to '<i class="fa fa-square-o"></i>'.html_safe, complete_note_path(@team, @retro, n.id), method: :patch %>
-      <% end %>
+      <span class="update-2">
+        <% if n.complete_status == 1 %>
+          <%= link_to '<i class="fa fa-check-square-o"></i>'.html_safe, incomplete_note_path(@team, @retro, n.id), method: :patch %>
+        <% else %>
+          <%= link_to '<i class="fa fa-square-o"></i>'.html_safe, complete_note_path(@team, @retro, n.id), method: :patch %>
+        <% end %>
+      </span>
       <%= n.content %>
       <% if !n.upvote.nil? %>
         +<%= n.upvote %>
